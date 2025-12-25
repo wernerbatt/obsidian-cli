@@ -1,0 +1,15 @@
+# Obsidian CLI Configuration
+
+# Path to your Obsidian vault (relative or absolute)
+vault_path: ../Obsidian
+
+# Default settings
+settings:
+  # Whether to create backups before modifying files
+  create_backups: true
+
+  # Default daily note location
+  daily_notes_folder: ""
+
+  # Default template folder
+  templates_folder: ""
