@@ -1,0 +1,13 @@
+# Python dependencies for Obsidian CLI tools
+
+# YAML parsing
+PyYAML>=6.0
+
+# Markdown processing
+python-frontmatter>=1.0.0
+
+# File pattern matching
+pathspec>=0.11.0
+
+# Date/time utilities
+python-dateutil>=2.8.0
