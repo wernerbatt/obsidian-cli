@@ -27,6 +27,7 @@ ls "${VAULT_PATH}/${TEMPLATES_FOLDER}" | rg "Template\.md$"
 
 - Place reference notes in `References/` under the vault.
 - Copy the chosen template into `References/<Reference Name>.md`.
+- Do not rename existing reference notes unless the user explicitly asks.
 - Ensure the `References/` folder exists.
 - After creating the new reference note, open it in Obsidian via the URI handler.
 
@@ -53,6 +54,7 @@ cmd.exe /c start "" "obsidian://open?path=$(wslpath -w \"${VAULT_PATH}/Reference
 - Include `url` in frontmatter when the user provides one.
 - Use wikilinks for fields like `category`, `author`, or `loc` when your templates expect them.
 - Populate metadata for all fields you have reasonable confidence about (for example: cuisine, type, ingredients, author, url).
+- For recipes, prefer a YAML list for `ingredients` when multiple items are known.
 
 ## Add images for physical places or visual items
 
