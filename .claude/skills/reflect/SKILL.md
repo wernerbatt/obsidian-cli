@@ -28,6 +28,8 @@ Which skill should I analyze this session for?
 - [other]
 ```
 
+If the user explicitly names a skill (for example, `/reflect on reference`), skip the prompt and proceed with that skill.
+
 ### Step 2: Analyze the Conversation
 
 Look for these signals in the current conversation:
@@ -101,7 +103,8 @@ Avoid: pure red (#FF0000) on black, green on red (colorblind users)
    - `.claude/skills` within the current repo (if present)
 2. Read the current skill file from `[skills-root]/[skill-name]/SKILL.md`
 3. Apply the changes using the Edit tool
-4. Run git commands from the skills root (if it is a git repo):
+4. If the skill path is a symlink, resolve the real path and use its repo for git operations.
+5. Run git commands from the skills root (if it is a git repo):
 
 ```
 cd [skills-root]
@@ -110,7 +113,7 @@ git commit -m "[skill]: [change summary]"
 git push origin main
 ```
 
-5. Confirm: "Skill updated and pushed to GitHub"
+6. Confirm: "Skill updated and pushed to GitHub" and mention the symlink target if one was used.
 
 ### Step 5: If Declined
 
