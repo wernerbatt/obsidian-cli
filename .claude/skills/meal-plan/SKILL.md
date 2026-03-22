@@ -72,7 +72,7 @@ These are standing preferences — apply them automatically without asking.
 - On partner's late-shift days: meal must be cooked before they leave (they eat before going, or take it).
 - On partner's early-shift days: they're back by ~15:30, normal evening dinner works.
 - Werner can't cook midday on office days (Mon, Thu). If a meal is needed for a Mon/Tue shift, someone cooks the day before or on a day off.
-- Partner often batch-cooks on her days off for upcoming shifts.
+- Partner often batch-cooks on days off for upcoming shifts.
 
 ### Serving size
 - **Default: serves 2.** If a recipe serves more, flag it and ask:

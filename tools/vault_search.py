@@ -77,7 +77,7 @@ def search_by_tag(vault_path, tag):
                                     tags = [tags]
                                 if tag in tags:
                                     results.append(md_file.relative_to(vault_path))
-                        except:
+                        except (yaml.YAMLError, KeyError, TypeError):
                             pass
 
                 # Check inline tags

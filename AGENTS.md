@@ -2,6 +2,7 @@
 
 ## Skills
 - daily-note
+- meal-plan
 - reference
 - search
 - tasks

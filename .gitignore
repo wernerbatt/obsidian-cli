@@ -25,8 +25,30 @@ include/
 .DS_Store
 Thumbs.db
 
-# Config (if you want to keep personal config private)
-# config.yaml
+# Config (contains local vault path)
+config.yaml
 
 # Logs
 *.log
+
+# Financial data
+newday-exports/
+
+# Banking portal snapshots
+_nd_*.yaml
+_debug.yaml
+
+# Local agent config
+.pi/
+
+# Test scripts (local paths)
+test-*.mjs
+
+# Personal plans
+plans/
+
+# NewDay login skill (local-only)
+.claude/skills/newday-login/
+
+# Unrelated tools
+tools/tiktok_gallery_download.py
