@@ -1,6 +1,6 @@
 ---
 name: meal-plan
-description: Plan weekly meals using recipes from the Obsidian vault and add them to Google Calendar. Searches vault for recipe inspiration, iterates with the user to lock in choices, then creates calendar events with ingredients and prep instructions. Use when asked to plan meals, create a meal plan, or organise dinners for the week.
+description: Plan weekly meals using recipes from the Obsidian vault and add them to Google Calendar. Searches vault for recipe inspiration, iterates with the user to lock in choices, then creates calendar events with ingredients and prep instructions. Rates last week's meals, ensures every planned meal has a vault recipe file. Use when asked to plan meals, create a meal plan, or organise dinners for the week.
 ---
 
 # Meal Plan
@@ -159,7 +159,7 @@ Also check `Clippings/` if the recipe lives there instead of `References/`.
 
 ### 7. Create recipe files for meals not in Obsidian
 
-If a confirmed meal does NOT have an existing recipe note in the vault:
+**Always run this step.** Every confirmed meal must have a recipe file in the vault. If a confirmed meal does NOT have an existing recipe note:
 
 1. Copy the Recipe Template:
 ```bash
@@ -179,7 +179,20 @@ cp "$VAULT_PATH/$TEMPLATES/Recipe Template.md" "$VAULT_PATH/References/<Meal Nam
    - `## Directions` — write out the steps
    - `## Notes` — any tips or source info
 
-### 8. Compile shopping list
+### 8. Rate past week's meals
+
+Before planning the new week, review last week's meals:
+
+1. Pull meal events from the previous 7 days on the Family calendar.
+2. For each meal, search the vault (References/ and Clippings/) for a matching recipe file.
+3. If a recipe file exists, check whether it already has a `rating:` value.
+4. Ask the user to rate each meal one at a time (1–5 scale):
+   - **No existing rating:** "Meal Name — rate 1–5?"
+   - **Has existing rating:** "Meal Name — currently rated X. Adjust? (or skip)"
+5. If no vault file exists for the meal, skip it (don't rate meals without recipe files).
+6. Update the `rating:` frontmatter field in each recipe file. Use plain numbers only (e.g. `rating: 4.5`, never `"4"` or `4/5`).
+
+### 9. Compile shopping list
 
 After locking in meals and creating calendar events, compile a shopping list:
 
@@ -216,7 +229,8 @@ printf "===MEAT & FISH===\r\nItem 1\r\nItem 2\r\n===FRESH VEG & HERBS===\r\nItem
 ```
 User: plan meals for this week
 
-Agent: [checks calendar, finds RACLETTE on Monday]
+Agent: [rates last week's meals one at a time]
+       [checks calendar, finds RACLETTE on Monday]
        [searches vault for recipes]
        [suggests 6 meals for the empty days]
 
